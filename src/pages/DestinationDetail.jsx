@@ -31,12 +31,13 @@ export default function DestinationDetail() {
                 </div>
 
                 {/* Hero */}
-                <div className="relative h-[60vh] rounded-3xl overflow-hidden mb-12 shadow-md">
-                    <img src={destination.image} alt={destination.name} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                    <div className="absolute bottom-12 left-12 right-12 flex justify-between items-end">
-                        <div className="text-white">
-                            <h1 className="text-5xl font-headline font-bold mb-4">{destination.name}</h1>
+                <div className="relative h-[60vh] rounded-3xl overflow-hidden mb-12 shadow-md flex flex-col justify-end">
+                    <img src={destination.image} alt={destination.name} className="absolute inset-0 w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+                    
+                    <div className="relative z-10 p-6 md:p-12 flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end w-full mt-auto">
+                        <div className="text-white mb-6 md:mb-0 w-full md:w-auto">
+                            <h1 className="text-4xl md:text-5xl font-headline font-bold mb-2 md:mb-4">{destination.name}</h1>
                             <div className="flex items-center gap-4 text-white/90">
                                 <div className="flex items-center gap-1">
                                     <span className="material-symbols-outlined text-yellow-400" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
@@ -45,13 +46,15 @@ export default function DestinationDetail() {
                                 </div>
                             </div>
                         </div>
-                        <div className="text-right">
-                            <p className="text-white/80 text-sm mb-1 uppercase tracking-widest">Starting from</p>
-                            <p className="text-4xl font-headline font-bold text-white mb-4">{formatPrice(destination.price)}</p>
+                        <div className="text-left md:text-right w-full md:w-auto flex flex-row md:flex-col justify-between items-center md:items-end border-t border-white/20 md:border-none pt-4 md:pt-0">
+                            <div className="mb-0 md:mb-4">
+                                <p className="text-white/80 text-[10px] md:text-sm mb-0 md:mb-1 uppercase tracking-widest">Starting from</p>
+                                <p className="text-2xl md:text-4xl font-headline font-bold text-white mb-0">{formatPrice(destination.price)}</p>
+                            </div>
                             <Link 
                                 to="/checkout" 
                                 state={{ package: destination }} 
-                                className="inline-block bg-primary text-white px-8 py-3 rounded-xl font-bold hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors"
+                                className="inline-block bg-primary text-white px-8 py-3.5 rounded-xl font-bold hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors active:scale-95 shadow-lg shrink-0"
                             >
                                 Book Now
                             </Link>

@@ -5,7 +5,7 @@ import SmartChatWidget from '../support/SmartChatWidget';
 
 export default function MainLayout() {
     return (
-        <div className="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+        <div className="bg-surface font-body text-on-surface min-h-dvh flex flex-col">
             <Navbar />
             <main className="flex-grow pt-20">
                 <Outlet />

@@ -28,7 +28,7 @@ export default function SmartChatWidget() {
     };
 
     return (
-        <div className="fixed bottom-8 right-8 z-[100] flex flex-col items-end">
+        <div className="fixed bottom-8 right-8 z-[100] flex flex-col items-end pb-safe">
             {/* Chat Box */}
             {isOpen && (
                 <div className="bg-surface-container-lowest w-80 h-96 mb-4 rounded-2xl shadow-2xl border border-outline-variant flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-300">

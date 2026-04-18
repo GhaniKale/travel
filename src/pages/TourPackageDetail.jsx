@@ -71,17 +71,17 @@ export default function TourPackageDetail() {
                                  </div>
                              ))}
                          </div>
-                         <div className="flex items-center justify-between mt-auto border-t border-outline-variant/50 pt-6">
+                         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-auto border-t border-outline-variant/50 pt-6 gap-6 sm:gap-0">
                             <div>
                                 <span className="text-xs text-on-surface-variant">Total Price from</span>
                                 <p className="text-3xl font-bold text-on-surface">{formatPrice(tourPackage.price)}</p>
                             </div>
-                            <div className="flex gap-3">
+                            <div className="flex gap-3 w-full sm:w-auto">
                                 <WishlistButton item={tourPackage} />
                                 <Link 
                                     to="/checkout" 
                                     state={{ package: tourPackage }}
-                                    className="editorial-gradient flex items-center justify-center text-white px-8 py-3 rounded-xl font-headline font-bold text-sm hover:shadow-lg transition-shadow"
+                                    className="editorial-gradient flex-1 sm:flex-none flex items-center justify-center text-white px-8 py-3.5 rounded-xl font-headline font-bold text-sm hover:shadow-lg active:scale-95 transition-all shadow-md shrink-0 relative z-10"
                                 >
                                     Book Now
                                 </Link>

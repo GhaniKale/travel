@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
+
 export default function TourPackages() {
     return (
-        <section className="py-24 px-8 bg-surface-container-low">
+        <section id="packages" className="py-24 px-8 bg-surface-container-low scroll-mt-24">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="font-headline font-bold text-4xl text-on-background mb-4 tracking-tight">Popular Tour Packages</h2>
@@ -28,7 +30,7 @@ export default function TourPackages() {
                                 </div>
                                 <p className="text-on-surface-variant text-sm leading-relaxed mb-6">Explore the volcanic wonders of Mount Bromo and the majestic Ijen Crater. Includes private transport and professional photography.</p>
                             </div>
-                            <button className="w-full py-3 border-2 border-primary/20 rounded-xl text-primary font-bold hover:bg-primary hover:text-on-primary transition-all">View Full Itinerary</button>
+                            <Link to="/packages/java-volcano" className="w-full py-3 md:py-4 border-2 border-primary/20 rounded-xl text-primary font-bold hover:bg-primary hover:text-on-primary transition-all text-center block active:scale-95 min-h-[48px] flex items-center justify-center">View Full Itinerary</Link>
                         </div>
                     </div>
                     <div className="md:col-span-2 md:row-span-1 bg-surface-container-lowest rounded-2xl p-6 shadow-sm flex gap-6 group">
@@ -42,7 +44,7 @@ export default function TourPackages() {
                             </div>
                             <div className="flex justify-between items-center">
                                 <span className="text-secondary font-bold text-xl">$890</span>
-                                <button className="text-primary font-bold text-sm flex items-center gap-1 hover:underline">Details <span className="material-symbols-outlined text-sm">open_in_new</span></button>
+                                <Link to="/destinations/komodo" className="text-primary font-bold text-sm flex items-center justify-center gap-1 hover:underline p-2 -mr-2 min-h-[44px] min-w-[44px] active:scale-95 transition-transform">Details <span className="material-symbols-outlined text-sm">open_in_new</span></Link>
                             </div>
                         </div>
                     </div>

@@ -20,26 +20,42 @@ export default function DestinationsGrid({ filters }) {
             {/* Bento-Style Grid */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                 {/* Bali - Large Card */}
-                <div className="md:col-span-8 group cursor-pointer">
-                    <div className="relative h-[500px] rounded-xl overflow-hidden shadow-sm">
-                        <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqPQh5GxlzuauTdIvBlPHFOO8pgPcLfzhDtlHziYYMA2DncHIL5YfH5Sz0JeaLvf32dD28konpU9kbpUAqfHRZsve6hqzKyzcfqIOCPwMBbDuN6UYeNbissWPtJU6qcaHisnqvSBvuBD8U31U-HJ1LR5M0y-ZXO8P8vvItMtQzlGHnT_31q1KSTnTbK1pr7yspqNhdH2SuXj7o5gZipc-Suv62Hf8wsKVBavVuAbi2Yu8vjrX_cBam-Ctm6hiZnEI37sRtirNBwQ" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                        <div className="absolute top-6 right-6 bg-surface-container-lowest/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
+                <div className="md:col-span-8 group">
+                    <div className="relative h-[450px] md:h-[500px] rounded-2xl overflow-hidden shadow-md flex flex-col justify-end">
+                        {/* 2. Image Handling: absolute inset-0 object-cover agar gambar melekat namun proporsional */}
+                        <img className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqPQh5GxlzuauTdIvBlPHFOO8pgPcLfzhDtlHziYYMA2DncHIL5YfH5Sz0JeaLvf32dD28konpU9kbpUAqfHRZsve6hqzKyzcfqIOCPwMBbDuN6UYeNbissWPtJU6qcaHisnqvSBvuBD8U31U-HJ1LR5M0y-ZXO8P8vvItMtQzlGHnT_31q1KSTnTbK1pr7yspqNhdH2SuXj7o5gZipc-Suv62Hf8wsKVBavVuAbi2Yu8vjrX_cBam-Ctm6hiZnEI37sRtirNBwQ" alt="Bali" />
+                        
+                        {/* 3. Mobile Click Bug: Tambahkan pointer-events-none agar gradient tidak menangkap klik */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent pointer-events-none"></div>
+                        
+                        <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-surface-container-lowest/20 backdrop-blur-md px-3 md:px-4 py-1.5 rounded-full border border-white/20 z-10">
                             <div className="flex items-center gap-1">
-                                <span className="material-symbols-outlined text-yellow-400 text-sm" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
-                                <span className="text-white text-sm font-bold">4.9</span>
+                                <span className="material-symbols-outlined text-yellow-400 text-xs md:text-sm" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                                <span className="text-white text-xs md:text-sm font-bold">4.9</span>
                             </div>
                         </div>
-                        <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
-                            <div className="text-white">
-                                <span className="bg-primary/90 px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest mb-3 inline-block">Best Seller</span>
-                                <h3 className="text-4xl font-headline font-bold tracking-tight">Bali</h3>
-                                <p className="text-white/80 mt-2 max-w-md font-body">Immerse yourself in the cultural heartbeat of Indonesia. From Ubud's jungles to Uluwatu's cliffs.</p>
+
+                        {/* 1. Responsive Card Structure: flex-col di mobile, md:flex-row di desktop */}
+                        <div className="relative z-10 p-5 md:p-8 flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end gap-5 md:gap-0 w-full mt-auto">
+                            <div className="text-white flex-1 pr-4">
+                                <span className="bg-primary/90 px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest mb-2 md:mb-3 inline-block">Best Seller</span>
+                                <h3 className="text-3xl md:text-4xl font-headline font-bold tracking-tight">Bali</h3>
+                                <p className="text-white/80 mt-1 md:mt-2 max-w-md font-body text-sm md:text-base line-clamp-2 md:line-clamp-none">Immerse yourself in the cultural heartbeat of Indonesia. From Ubud's jungles to Uluwatu's cliffs.</p>
                             </div>
-                            <div className="text-right">
-                                <p className="text-white/60 text-xs uppercase tracking-widest mb-1">From</p>
-                                <p className="text-white text-2xl font-bold font-headline">{formatPrice(549)}</p>
-                                <Link to="/destinations/bali" className="inline-block mt-4 bg-white text-primary px-6 py-2 rounded-lg text-sm font-bold hover:bg-primary-fixed transition-colors">View Details</Link>
+                            
+                            {/* Flex-row di mobile untuk mensejajarkan harga dan tombol (Area Hitbox besar) */}
+                            <div className="text-left md:text-right w-full md:w-auto flex flex-row md:flex-col justify-between items-center md:items-end border-t border-white/20 md:border-none pt-4 md:pt-0">
+                                <div className="mb-0 md:mb-4">
+                                    <p className="text-white/60 text-[10px] md:text-xs uppercase tracking-widest mb-0 md:mb-1">From</p>
+                                    <p className="text-white text-xl md:text-2xl font-bold font-headline">{formatPrice(549)}</p>
+                                </div>
+                                {/* 4. Touch-Friendly: Tombol besar dengan padding (px-8 py-3.5) agar mudah ditekan jari */}
+                                <Link 
+                                    to="/destinations/bali" 
+                                    className="inline-block bg-white text-primary px-8 py-3 md:py-2.5 rounded-xl text-sm font-bold active:scale-95 transition-transform shadow-lg shrink-0"
+                                >
+                                    View Details
+                                </Link>
                             </div>
                         </div>
                     </div>
